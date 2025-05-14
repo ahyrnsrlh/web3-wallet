@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import dynamic from "next/dynamic"
+import dynamic from "next/dynamic";
 
 // Dynamically import Spline with no SSR
-const Spline = dynamic(() => import("@splinetool/react-spline/next"), {
+const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
-})
+});
 
 export default function DirectSpline() {
   return (
@@ -20,5 +20,5 @@ export default function DirectSpline() {
         }}
       />
     </div>
-  )
+  );
 }

@@ -1,30 +1,33 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import dynamic from "next/dynamic"
-import { LoadingSpinner } from "@/components/ui/loading-spinner"
+import { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { LoadingSpinner } from "@/components/ui/loading-spinner";
 
 // Dynamically import Spline with no SSR to avoid server-side rendering issues
-const Spline = dynamic(() => import("@splinetool/react-spline/next"), {
+const Spline = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
   loading: () => (
     <div className="flex items-center justify-center w-full h-full min-h-[400px]">
       <LoadingSpinner size={40} className="text-primary" />
     </div>
   ),
-})
+});
 
 interface SplineWalletProps {
-  className?: string
-  height?: string
+  className?: string;
+  height?: string;
 }
 
-export function SplineWallet({ className = "", height = "400px" }: SplineWalletProps) {
-  const [isMounted, setIsMounted] = useState(false)
+export function SplineWallet({
+  className = "",
+  height = "400px",
+}: SplineWalletProps) {
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true)
-  }, [])
+    setIsMounted(true);
+  }, []);
 
   if (!isMounted) {
     return (
@@ -33,7 +36,7 @@ export function SplineWallet({ className = "", height = "400px" }: SplineWalletP
           <LoadingSpinner size={40} className="text-primary" />
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -48,5 +51,5 @@ export function SplineWallet({ className = "", height = "400px" }: SplineWalletP
         }}
       />
     </div>
-  )
+  );
 }
