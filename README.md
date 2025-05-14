@@ -1,6 +1,6 @@
 # Web3 Wallet Application
 
-A modern, secure Web3 wallet application with 3D object integration and dark mode UI.
+A modern and secure digital wallet application that enables users to interact with multiple blockchains through a user-friendly interface. Equipped with 3D object integration and an elegant dark mode UI, this application is designed for users who want to manage their digital assets in a safe and efficient way.
 
 ## Features
 
