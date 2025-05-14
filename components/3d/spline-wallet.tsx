@@ -1,18 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
-
-// Dynamically import Spline with no SSR to avoid server-side rendering issues
-const Spline = dynamic(() => import("@splinetool/react-spline"), {
-  ssr: false,
-  loading: () => (
-    <div className="flex items-center justify-center w-full h-full min-h-[400px]">
-      <LoadingSpinner size={40} className="text-primary" />
-    </div>
-  ),
-});
+import SplineFallback from "./spline-fallback";
 
 interface SplineWalletProps {
   className?: string;
@@ -41,13 +31,11 @@ export function SplineWallet({
 
   return (
     <div className={`w-full ${className}`} style={{ height }}>
-      <Spline
+      <SplineFallback
         scene="https://prod.spline.design/PDyXIzA4SACdUIhV/scene.splinecode"
         style={{
           width: "100%",
           height: "100%",
-          border: "none",
-          outline: "none",
         }}
       />
     </div>
